@@ -50,7 +50,30 @@ So I built this app: **two big buttons** to instantly toggle between my
 
 [python.org]: https://www.python.org/downloads/macos/
 
-## 🚀 Install & run (dev mode, the easy way)
+## ⬇️ Install (no terminal needed)
+
+### Option A — Download the app
+
+1. Go to [**Releases**](https://github.com/remoideas/resolution-switcher/releases/latest)
+   and download `ResolutionSwitcher.zip`.
+2. Unzip it and drag **ResolutionSwitcher.app** to your `Applications` folder.
+3. **First launch:** since the app isn't signed with a paid Apple Developer
+   account, right-click it → **Open** → **Open** (you only do this once). Or run:
+   ```bash
+   xattr -dr com.apple.quarantine "/Applications/ResolutionSwitcher.app"
+   ```
+
+### Option B — Homebrew
+
+```bash
+brew install --cask remoideas/tap/resolution-switcher
+```
+
+> The app is **universal** (Intel + Apple Silicon). It's not notarized yet
+> (that needs a paid Apple Developer account), so macOS asks you to confirm the
+> first open — see step 3 above.
+
+## 🚀 Run from source (dev mode)
 
 Clone the repo and run it:
 

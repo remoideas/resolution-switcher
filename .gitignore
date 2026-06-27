@@ -8,5 +8,9 @@ resolucion.log
 __pycache__/
 *.pyc
 
+# Builds de py2app
+build/
+dist/
+
 # macOS
 .DS_Store
