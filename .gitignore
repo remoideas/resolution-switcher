@@ -1,0 +1,12 @@
+# Entorno virtual de Python
+.venv/
+
+# Logs de la app
+resolucion.log
+
+# Caché de Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
