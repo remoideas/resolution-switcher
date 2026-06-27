@@ -1,61 +1,58 @@
 # 🖥️ ResolutionSwitcher
 
-**Cambia la resolución de tu Mac con un clic desde la barra de menú.** Pensada
-para quienes trabajan en equipos remotos y necesitan saltar rápido entre una
-resolución "grande" para el monitor real y una "chica" para cuando se conectan
-en remoto.
-
-> _A tiny macOS menu bar + Dock app to switch your display resolution with one
-> click. Built for people who work on remote machines._ (English summary at the
-> bottom.)
+**Switch your Mac's display resolution with one click from the menu bar.** Built
+for people who work on remote machines and need to quickly jump between a "big"
+resolution for the real monitor and a "small" one for when they connect
+remotely.
 
 ---
 
-## 💡 ¿Por qué la hice?
+## 💡 Why I built it
 
-Cuando me conecto a mi Mac de forma **remota** (Pantalla Compartida, VNC, etc.),
-la pantalla del equipo remoto se ve **diminuta**: la resolución nativa es enorme
-y todo queda muy chico para trabajar cómodo desde otra máquina.
+When I connect to my Mac **remotely** (Screen Sharing, VNC, etc.), the remote
+screen looks **tiny**: the native resolution is huge and everything is too small
+to work comfortably from another machine.
 
-Cada vez tenía que entrar a **Ajustes → Pantallas** y cambiar la resolución a
-mano: bajarla para verlo bien en remoto, y volver a subirla al sentarme frente
-al equipo. Aburrido y lento.
+Every time, I had to go into **System Settings → Displays** and change the
+resolution by hand: lower it to see things well over remote, then raise it again
+when sitting back at the machine. Tedious and slow.
 
-Así que hice esta app: **dos botones grandes** para alternar al instante entre
-mi resolución de **escritorio** (1920×1080) y una **"móvil"/remota** más chica
-(960×540), sin abrir Ajustes y sin comandos.
+So I built this app: **two big buttons** to instantly toggle between my
+**desktop** resolution (1920×1080) and a smaller **"mobile"/remote** one
+(960×540), without opening Settings and without commands.
 
-## 🎯 ¿A quién le sirve?
+## 🎯 Who is it for?
 
-- 🧑‍💻 **Gente que usa su Mac en remoto** (como yo): baja la resolución para
-  trabajar cómodo desde otro equipo y súbela al volver, en un clic.
-- 🖥️ Quien quiere **alternar resoluciones rápido** sin entrar a Ajustes cada vez.
-- 📐 Cualquiera que necesite presets de resolución a mano (presentar, grabar,
-  agrandar la interfaz, etc.).
+- 🧑‍💻 **People who use their Mac remotely** (like me): drop the resolution to
+  work comfortably from another machine and raise it when you're back, in one
+  click.
+- 🖥️ Anyone who wants to **switch resolutions fast** without opening Settings
+  every time.
+- 📐 Anyone who needs resolution presets at hand (presenting, recording, making
+  the UI bigger, etc.).
 
-## ✨ Características
+## ✨ Features
 
-- **Icono 🖥️ en la barra de menú** con accesos rápidos.
-- **Icono en el Dock** que abre una ventana con **dos botones grandes**:
-  Escritorio y Móvil.
-- **Valores configurables** y guardados en disco (se mantienen entre reinicios).
-- **Lista de todos los modos** que tu monitor soporta, por si quieres otro.
-- **Arranque automático** al iniciar sesión (opcional).
-- **Sin dependencias externas raras**: cambia la resolución con las APIs nativas
-  de macOS (CoreGraphics/Quartz vía PyObjC). No instala herramientas de terceros
-  ni necesita permisos especiales para cambiar la resolución.
+- **🖥️ menu bar icon** with quick actions.
+- **Dock icon** that opens a window with **two big buttons**: Desktop and Mobile.
+- **Configurable values** saved to disk (they persist across restarts).
+- **List of every mode** your display supports, in case you want a different one.
+- **Launch at login** (optional).
+- **No weird external dependencies**: it changes the resolution using native
+  macOS APIs (CoreGraphics/Quartz via PyObjC). No third-party tools and no
+  special permissions required to change the resolution.
 
-## 📦 Requisitos
+## 📦 Requirements
 
-- **macOS** (probado en versiones recientes).
-- **Python 3** (el que ya trae macOS, o el de [python.org] / Homebrew).
-- Conexión a internet la **primera vez** (para instalar 2 paquetes de Python).
+- **macOS** (tested on recent versions).
+- **Python 3** (the one that ships with macOS, or from [python.org] / Homebrew).
+- Internet connection the **first time** (to install 2 Python packages).
 
 [python.org]: https://www.python.org/downloads/macos/
 
-## 🚀 Instalación y uso (modo dev, lo más fácil)
+## 🚀 Install & run (dev mode, the easy way)
 
-Clona el repo y arráncala:
+Clone the repo and run it:
 
 ```bash
 git clone https://github.com/remoideas/resolution-switcher.git
@@ -63,35 +60,38 @@ cd resolution-switcher
 ./run.sh
 ```
 
-`run.sh` crea un entorno virtual e instala las dependencias **solo la primera
-vez**; las siguientes arranca directo. Verás el icono **🖥️** en la barra de
-arriba y un icono en el **Dock**.
+`run.sh` creates a virtual environment and installs the dependencies **only the
+first time**; after that it runs directly. You'll see the **🖥️** icon in the
+menu bar and an icon in the **Dock**.
 
-### Cómo se usa
+### How to use it
 
-**Desde la barra de menú (arriba):** clic en 🖥️ →
-- `Resolución Escritorio (1920×1080)` — aplica tu preset de escritorio
-- `Resolución Móvil (960×540)` — aplica tu preset chico/remoto
-- `Abrir ventana…`
-- `Salir`
+**From the menu bar (top):** click 🖥️ →
+- `Resolución Escritorio (1920×1080)` — applies your desktop preset
+- `Resolución Móvil (960×540)` — applies your small/remote preset
+- `Abrir ventana…` (Open window)
+- `Salir` (Quit)
 
-**Desde la ventana** (icono del Dock, o "Abrir ventana…"):
-- **Dos botones grandes** — clic = aplica esa resolución al instante.
-- **Editar valores** — cambia el `ANCHOxALTO` de cada preset y pulsa
-  *Guardar y aplicar*. Se guarda y el botón grande se actualiza solo.
-- **Otro modo** — lista desplegable con **todas** las resoluciones que tu
-  monitor soporta, por si quieres aplicar una distinta.
-- Abajo se muestra la **resolución actual** en vivo.
+**From the window** (Dock icon, or "Abrir ventana…"):
+- **Two big buttons** — click = applies that resolution instantly.
+- **Edit values** — change each preset's `WIDTHxHEIGHT` and hit *Guardar y
+  aplicar* (Save & apply). It's saved and the big button updates itself.
+- **Other mode** — dropdown with **every** resolution your display supports, in
+  case you want to apply a different one.
+- The **current resolution** is shown live at the bottom.
 
-## ⚙️ Configuración
+> ℹ️ The in-app UI labels are in Spanish (it started as a personal tool).
+> Contributions to add English/i18n are very welcome — see *Contributing*.
 
-Los presets se guardan en:
+## ⚙️ Configuration
+
+Presets are saved to:
 
 ```
 ~/Library/Application Support/Resolucion/config.json
 ```
 
-Ejemplo:
+Example:
 
 ```json
 {
@@ -100,92 +100,92 @@ Ejemplo:
 }
 ```
 
-Puedes editarlos desde la ventana (recomendado) o a mano en ese archivo.
+You can edit them from the window (recommended) or by hand in that file.
 
-> ℹ️ Solo se aplican resoluciones que **tu monitor soporta**. Si pones un valor
-> que no existe, la app aplica el **modo más cercano** y te avisa. Para ver los
-> modos disponibles, mira la lista *"Otro modo"* en la ventana.
+> ℹ️ Only resolutions **your display supports** can be applied. If you enter a
+> value that doesn't exist, the app applies the **closest mode** and lets you
+> know. To see the available modes, check the *"Other mode"* list in the window.
 
-## 🔁 Arranque automático al iniciar sesión
+## 🔁 Launch at login
 
-Para que la app se abra sola cada vez que enciendes/entras a tu Mac:
+To have the app open by itself every time you turn on / log into your Mac:
 
 ```bash
 ./instalar-inicio.sh
 ```
 
-Esto registra un **LaunchAgent** del usuario en
-`~/Library/LaunchAgents/com.antonio.resolucion.plist` y la deja gestionada por
-macOS (ya no depende de tener la terminal abierta).
+This registers a per-user **LaunchAgent** at
+`~/Library/LaunchAgents/com.antonio.resolucion.plist` and lets macOS manage it
+(it no longer depends on keeping a terminal open).
 
-Para quitar el arranque automático:
+To remove the autostart:
 
 ```bash
 ./desinstalar-inicio.sh
 ```
 
-Si editas `resolucion.py`, vuelve a correr `./instalar-inicio.sh` para
-recargarla.
+If you edit `resolucion.py`, run `./instalar-inicio.sh` again to reload it.
 
-## 🧠 ¿Cómo funciona por dentro?
+## 🧠 How it works under the hood
 
-- La interfaz (barra de menú, Dock y ventana) usa **PyObjC** (los bindings de
-  Python para Cocoa/AppKit).
-- El cambio de resolución usa **CoreGraphics / Quartz**:
-  `CGDisplayCopyAllDisplayModes` para listar los modos y
-  `CGConfigureDisplayWithDisplayMode` + `CGCompleteDisplayConfiguration` para
-  aplicarlo de forma permanente sobre el monitor principal.
-- No usa herramientas externas (`displayplacer`, etc.) — todo es API nativa.
+- The UI (menu bar, Dock and window) uses **PyObjC** (Python bindings for
+  Cocoa/AppKit).
+- The resolution change uses **CoreGraphics / Quartz**:
+  `CGDisplayCopyAllDisplayModes` to list the modes, and
+  `CGConfigureDisplayWithDisplayMode` + `CGCompleteDisplayConfiguration` to apply
+  it permanently to the main display.
+- No external tools (`displayplacer`, etc.) — it's all native API.
 
-Estructura del proyecto:
+Project structure:
 
 ```
-resolucion.py          # La app (UI + lógica de resolución)
-run.sh                 # Arranque en dev (crea venv, instala deps, corre)
+resolucion.py          # The app (UI + resolution logic)
+run.sh                 # Dev launcher (creates venv, installs deps, runs)
 requirements.txt       # pyobjc-framework-Cocoa, pyobjc-framework-Quartz
-instalar-inicio.sh     # Activa el arranque automático al iniciar sesión
-desinstalar-inicio.sh  # Lo quita
+instalar-inicio.sh     # Enables launch at login
+desinstalar-inicio.sh  # Removes it
 ```
 
-## 🩹 Solución de problemas
+## 🩹 Troubleshooting
 
-- **No veo el icono 🖥️ en la barra:** puede estar oculto si la barra está llena;
-  mira en el menú de overflow. Revisa también `resolucion.log` en la carpeta del
-  proyecto.
-- **No pasa nada al aplicar:** probablemente esa resolución exacta no existe en
-  tu monitor; usa la lista *"Otro modo"* para ver las soportadas.
-- **No arranca sola:** confirma que el agente está cargado con
-  `launchctl print gui/$(id -u)/com.antonio.resolucion` y vuelve a correr
-  `./instalar-inicio.sh`.
-- **Logs:** todo lo que imprime la app va a `resolucion.log` dentro del repo.
+- **I don't see the 🖥️ icon in the menu bar:** it may be hidden if the bar is
+  full; check the overflow menu. Also look at `resolucion.log` in the project
+  folder.
+- **Nothing happens when I apply:** that exact resolution probably doesn't exist
+  on your display; use the *"Other mode"* list to see the supported ones.
+- **It doesn't start on its own:** confirm the agent is loaded with
+  `launchctl print gui/$(id -u)/com.antonio.resolucion` and run
+  `./instalar-inicio.sh` again.
+- **Logs:** everything the app prints goes to `resolucion.log` inside the repo.
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-¡Las contribuciones son bienvenidas! Ideas que podrían ayudar:
+Contributions are welcome! Ideas that could help:
 
-- Soporte para **varios monitores** (hoy actúa sobre el principal).
-- Más de dos presets / presets con nombre.
-- Empaquetado como **`.app`** nativa (p. ej. con `py2app`).
-- Atajos de teclado globales.
+- **English / i18n** for the in-app UI labels.
+- Support for **multiple monitors** (today it acts on the main one).
+- More than two presets / named presets.
+- Packaging as a native **`.app`** (e.g. with `py2app`).
+- Global keyboard shortcuts.
 
-Abre un *issue* o un *pull request*.
+Open an issue or a pull request.
 
-## 📄 Licencia
+## 📄 License
 
-[MIT](LICENSE) — úsalo, modifícalo y compártelo libremente.
+[MIT](LICENSE) — use it, modify it and share it freely.
 
 ---
 
-## English summary
+## Resumen en español
 
-**Resolución** is a small macOS menu bar + Dock app that switches your display
-resolution with one click. I built it because I often work on my Mac
-**remotely**, and at native resolution everything looks tiny on the remote
-screen. Instead of opening *System Settings → Displays* every time, this app
-gives you **two big buttons** — Desktop (e.g. 1920×1080) and Mobile/remote
-(e.g. 960×540) — plus a dropdown with every mode your display supports. Presets
-are configurable and saved to disk, and it can **launch at login**.
+**ResolutionSwitcher** es una pequeña app de barra de menú + Dock para macOS que
+cambia la resolución de tu pantalla con un clic. La hice porque a menudo trabajo
+en mi Mac de forma **remota**, y a resolución nativa todo se ve diminuto en la
+pantalla remota. En vez de abrir *Ajustes → Pantallas* cada vez, esta app te da
+**dos botones grandes** — Escritorio (p. ej. 1920×1080) y Móvil/remoto (p. ej.
+960×540) — más una lista con todos los modos que tu monitor soporta. Los presets
+son configurables y se guardan en disco, y puede **arrancar al iniciar sesión**.
 
-Run it in dev mode with `./run.sh`. Enable autostart with `./instalar-inicio.sh`.
-It changes resolution through native macOS CoreGraphics/Quartz APIs (via PyObjC),
-with no third-party tools. MIT licensed.
+Córrela en modo dev con `./run.sh`. Activa el arranque automático con
+`./instalar-inicio.sh`. Cambia la resolución usando las APIs nativas de macOS
+(CoreGraphics/Quartz vía PyObjC), sin herramientas de terceros. Licencia MIT.
